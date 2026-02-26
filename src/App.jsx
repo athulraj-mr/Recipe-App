@@ -4,13 +4,14 @@ import { Routes, Route } from 'react-router-dom'
 import Home from "./pages/Home"
 import RecipeDetail from './pages/RecipeDetail'
 import Favorites from './pages/Favorites'
+import Details from './components/Details'
 
 function App() {
   return (
     <>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/detail' element={<RecipeDetail />} />
+        <Route path='/details/:id' element={<Details />} />
         <Route path='/favorites' element={<Favorites />} />
       </Routes>
     </>

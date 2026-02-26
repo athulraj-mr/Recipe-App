@@ -16,3 +16,12 @@
 @theme {
   --color-dark-300: oklch(0.9467 0.074 118.45);
 }
+
+@theme {
+  --color-myGreen-900: oklch(0.627 0.1017 138.72);
+}
+
+@theme {
+  --color-myDarkGreen-900: oklch(0.5672 0.1014 144.09);
+}
+
