@@ -23,8 +23,12 @@ const Details = () => {
         }
     }
 
+    const fetchedInstructions = recipe.strInstructions || ''
+    const steps = fetchedInstructions.split('\n').map(step => step.trim()).filter(step => step.length >0)
+
   return (
     <div className='flex justify-center'>
+        
         <div className='bg-myGreen-900 h-auto my-12 mx-2 px-2 py-4 rounded-2xl shadow-xl/20 md:px-5 md:py-10 md:w-150 md:shadow-xl/30 lg:w-350'>
             <div className='bg-white border-myGreen-900 h-auto rounded-2xl pb-4 md:pb-10 lg:flex lg:w-full lg:p-5'>
                 <div className='rounded-2xl mb-2 md:mb-8 lg:mb-0 lg:w-auto lg:h-auto'>
@@ -67,7 +71,14 @@ const Details = () => {
                             <h2 className='text-xl font-medium md:text-2xl'>How To Prepare</h2>
                         </div>
                         <div className='border border-dark-900 rounded-2xl px-3 py-5 text-base/7 shadow-xl mt-4 md:mt-8 md:px-5 md:pt-8 md:border-2'>
-                            <p className='md:text-lg'>{recipe.strInstructions}</p>
+                            {steps.map((step, index) => (
+                                <div className='my-3 md:mb-7'>
+                                    <div className='flex justify-center items-center my-2 bg-[#E36A6A] rounded-sm w-17 md:w-20 md:h-9 md:text-lg'>
+                                        <h2 className='text-lg'>Step -{index + 1}</h2>
+                                    </div>
+                                    <h2 className='text-lg/7 md:text-2xl/10'>{step}</h2>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -91,7 +102,14 @@ const Details = () => {
                         <h2 className='text-xl font-medium md:text-2xl'>How To Prepare</h2>
                     </div>
                     <div className='bg-white border-2 border-dark-900 rounded-2xl px-4 py-6 my-6'>
-                        <p className='text-lg/7'>{recipe.strInstructions}</p>
+                        {steps.map((step, index) => (
+                            <div className='my-3 md:mb-7'>
+                                <div className='flex justify-center items-center my-2 bg-[#E36A6A] rounded-sm w-17 md:w-20 md:h-9 md:text-lg lg:rounded-lg lg:h-10 lg:w-22 lg:mb-6'>
+                                    <h2 className='text-lg'>Step -{index + 1}</h2>
+                                </div>
+                                <h2 className='text-lg/7 md:text-2xl/10'>{step}</h2>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
