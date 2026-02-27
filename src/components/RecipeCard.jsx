@@ -5,7 +5,7 @@ import heartEmptyLogo from '../assets/logos/whiteHeart.svg'
 import { Link } from 'react-router-dom'
 import { useFavorites } from '../context/FavoritesContext';
 
-const RecipeDetailCard = ({recipe}) => {
+const RecipeCard = ({recipe}) => {
     const { addFavorite, removeFavorite, isFavorite } = useFavorites()
 
     const favorite = isFavorite(recipe.idMeal)
@@ -53,4 +53,4 @@ const RecipeDetailCard = ({recipe}) => {
   )
 }
 
-export default RecipeDetailCard
+export default RecipeCard

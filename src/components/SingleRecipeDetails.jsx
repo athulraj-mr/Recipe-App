@@ -1,4 +1,3 @@
-import React from 'react'
 import categoryLogo from '../assets/logos/category.svg'
 import areaLogo from '../assets/logos/area.svg'
 import heartSolidLogo from '../assets/logos/redHeart.svg'
@@ -6,17 +5,30 @@ import heartEmptyLogo from '../assets/logos/whiteHeart.svg'
 import { useParams } from 'react-router-dom'
 import useRecipe from '../hooks/useRecipe'
 import { useFavorites } from '../context/FavoritesContext'
+import loader from '../assets/logos/loder.svg'
 
-const Details = () => {
+const SingleRecipeDetails = () => {
 
     const { id } = useParams()
     const {recipe, loading, error } = useRecipe(id)
 
     const { addFavorite, removeFavorite, isFavorite } = useFavorites()
 
-    if (loading) return <p>Loading...</p>
-    if (error) return <p style={{ color: "red" }}>{error}</p>
-    if (!recipe) return null
+    if(loading) {
+        return (
+            <div className='flex justify-center mx-5 my-10'>
+                <img src={loader} alt="loader" className='animate-spin w-20'/>
+            </div>
+        )
+    }
+    if(error) {
+        return (
+            <div className='flex justify-center items-center mx-4 my-6 border-4 border-red-500 rounded-lg px-3 py-6 h-60'>
+                <h2 className='text-xl'>{error}</h2>
+            </div>
+        )
+    }
+    if(!recipe) return null
 
     const ingredients = []
     for(let i = 1; i <= 20; i++) {
@@ -41,10 +53,9 @@ const Details = () => {
     }
 
   return (
-    <div className='flex justify-center'>
-        
+    <div className='flex justify-center'> 
         <div className='bg-myGreen-900 h-auto my-12 mx-2 px-2 py-4 rounded-2xl shadow-xl/20 md:px-5 md:py-10 md:w-150 md:shadow-xl/30 lg:w-350'>
-            <div className='bg-white border-myGreen-900 h-auto rounded-2xl pb-4 md:pb-10 lg:flex lg:w-full lg:p-5'>
+            <div className='border-2 bg-white border-white h-auto rounded-2xl pb-4 md:pb-10 lg:flex lg:w-full lg:p-5 lg:bg-myGreen-900'>
                 <div className='relative rounded-2xl mb-2 md:mb-8 lg:mb-0 lg:w-auto lg:h-auto'>
                     <img src={recipe.strMealThumb} alt="food image" className='rounded-t-2xl md:w-full lg:w-180 lg:h-auto lg:rounded-2xl xl:w-100'/>
                     <button onClick={handleFavorite} className='absolute top-4 right-4'>
@@ -143,4 +154,6 @@ const Details = () => {
   )
 }
 
-export default Details
+export default SingleRecipeDetails
+
+//
