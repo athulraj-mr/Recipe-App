@@ -8,6 +8,7 @@ import loader from '../assets/logos/loder.svg'
 const SearchBar = () => {
     const [searchValue, setSearchValue] = useState("")
     const { recipes, loading, error, fetchedRecipe } = useRecipes()
+    const [result, setResult] = useState(false)
 
     useEffect(() => {
         fetchedRecipe('chicken')
@@ -47,7 +48,7 @@ const SearchBar = () => {
                 <p className='text-2xl border-2 border-red-500 rounded-xl px-3 py-3'>{error}</p>
             </div>
         }
-        {!loading && !error && recipes.length !== 0 && searchValue ?
+        {!loading && !error && recipes.length === 0 && searchValue ?
             <div className='bg-white flex justify-center items-center border-2 border-dark-900 mx-4 my-6 h-50 rounded-2xl md:text-xl md:h-70 lg:h-90 lg:border-4'>
                 <h2>Result Not Found</h2>
             </div>
