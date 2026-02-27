@@ -10,8 +10,10 @@ const SearchBar = () => {
     const { recipes, loading, error, fetchedRecipe } = useRecipes()
 
     useEffect(() => {
-        fetchedRecipe('chicken')
-    }, [])
+        if(searchValue.trim() === '') {
+            fetchedRecipe('chicken')
+        }
+    }, [searchValue])
 
     const handleSubmit = (e) => {
         e.preventDefault()
