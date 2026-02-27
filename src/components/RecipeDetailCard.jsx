@@ -6,30 +6,32 @@ import { Link } from 'react-router-dom'
 import { useFavorites } from '../context/FavoritesContext';
 
 const RecipeDetailCard = ({recipe}) => {
-    const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+    const { addFavorite, removeFavorite, isFavorite } = useFavorites()
 
-    const favorite = isFavorite(recipe.idMeal);
+    const favorite = isFavorite(recipe.idMeal)
 
     const handleFavorite = () => {
-    if (favorite) {
-        removeFavorite(recipe.idMeal);
-    } else {
-        addFavorite(recipe);
-    }
-};
+        if (favorite) {
+            removeFavorite(recipe.idMeal)
+        } else {
+            addFavorite(recipe)
+        }
+    };
   return (
     <div className='bg-white m-2 rounded-2xl shadow-xl/20 md:rounded-2xl md:m-4'>
-        <button onClick={handleFavorite}>
-        {favorite ? 
-            <div className='flex w-10'>
-                <img src={heartSolidLogo} alt="heartLogo"  className='w-8'/>
-            </div>
-        :  
-        <img src={heartEmptyLogo} alt="heart logo"  className='w-8'/>
-        }
-        </button>
-        <div className='rounded-2xl m-1 mb-0 md:rounded-2xl lg:mx-2 lg:mt-2'>
+        <div className='relative rounded-2xl m-1 mb-0 md:rounded-2xl lg:mx-2 lg:mt-2'>
             <img src={recipe.strMealThumb} alt="food image" className='rounded-t-2xl'/>
+            <button onClick={handleFavorite} className='absolute top-4 right-4'>
+            {favorite ? 
+                <div className='flex bg-white w-11 h-11 rounded-lg justify-center items-center px-1'>
+                    <img src={heartSolidLogo} alt="heartLogo"  className='w-6'/>
+                </div>
+            :  
+                <div className='flex bg-[#393953] w-11 h-11 rounded-lg justify-center items-center px-1'>
+                    <img src={heartEmptyLogo} alt="heartLogo"  className='w-6'/>
+                </div>
+            }
+            </button>
         </div>
         <div className='pl-3 pt-2'>
             <h1 className='text-2xl font-medium'>{recipe.strMeal}</h1>

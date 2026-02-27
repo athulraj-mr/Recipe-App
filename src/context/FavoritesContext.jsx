@@ -3,21 +3,26 @@ import { createContext, useContext, useEffect, useState } from "react";
 const FavoritesContext = createContext()
 
 export const FavoritesProvider = ({ children }) => {
-  const [favorites, setFavorites] = useState(() => {
-    const stored = localStorage.getItem("favorites")
-    return stored ? JSON.parse(stored) : []
-  })
+
+  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem("favorites")))
 
   useEffect(() => {
+
     localStorage.setItem("favorites", JSON.stringify(favorites))
+
   }, [favorites])
 
   const removeFavorite =(id) => {
     setFavorites(favorites.filter((item) => item.idMeal !== id))
   };
 
-  const addFavorite =(recipe) => {
-    if (!favorites.find((item) => item.idMeal === recipe.idMeal)) {
+  const addFavorite =(recipe ) => {
+
+    const alreadyExists = favorites.some(
+      (item) => item.idMeal === recipe.idMeal
+    );
+
+    if (!alreadyExists) {
       setFavorites([...favorites, recipe]);
     }
   }
