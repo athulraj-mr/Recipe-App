@@ -4,7 +4,11 @@ const FavoritesContext = createContext()
 
 export const FavoritesProvider = ({ children }) => {
 
-  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem("favorites")))
+  const [favorites, setFavorites] = useState(() => {
+    const stored = localStorage.getItem('favorites')
+    const parsed = stored ? JSON.parse(stored) : []
+    return Array.isArray(parsed) ? parsed : []
+  })
 
   useEffect(() => {
 

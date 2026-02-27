@@ -22,7 +22,7 @@ const NavBar = () => {
                 <div className='relative flex justify-center w-auto items-center gap-2 rounded-lg pr-2 pt-3 md:pr-0 lg:pr-0'>
                     <div>
                         <div className='flex justify-center w-auto'>
-                            {favorites.length !== 0 ? 
+                            {favorites && favorites.length !== 0 ? 
                                 <span className='absolute left-8 top-6 text-base text-white font-bold md:left-9 lg:text-xl'>+{favorites.length}</span>
                             : '' }
                         </div>
