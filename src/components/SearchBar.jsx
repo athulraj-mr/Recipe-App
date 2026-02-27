@@ -50,7 +50,7 @@ const SearchBar = () => {
             <div className='flex justify-center mt-8 lg:mb-16 lg:mt-18'>
                 <h1 className='text-xl font-medium text md:text-2xl lg:text-3xl'>All Recipes</h1>
             </div>
-            <div className='w-auto flex flex-col gap-3 mt-8 mb-8 h-auto justify-center bg-myGreen-900 mx-4 shadow-xl/20 rounded-2xl md:rounded-3xl md:grid md:grid-cols-3 lg:grid-cols-4 lg:px-2 lg:py-8'>
+            <div className='w-auto flex flex-col gap-3 my-8 py-4 h-auto justify-center bg-myGreen-900 mx-4 shadow-xl/20 rounded-2xl md:rounded-3xl md:grid md:grid-cols-3 lg:grid-cols-4 lg:px-2 lg:py-8'>
                 {recipes.map((recipe) => (
                     <RecipeDetailCard key = {recipe.idMeal} recipe = {recipe}/>
                 ))}

@@ -16,8 +16,13 @@ const NavBar = () => {
         </Link>
         <div className='w-1/5 flex items-center justify-center lg:pl-22'>
             <Link to= '/favorites'>
-                <div className='flex pr-2 pt-3 md:pr-0 lg:pr-0'>
-                    <img src={favoritesLogo} alt="" className='w-6 lg:w-8'/>
+                <div className='relative flex justify-center w-auto items-center gap-2 rounded-lg pr-2 pt-3 md:pr-0 lg:pr-0'>
+                    <div className='flex justify-center w-auto'>
+                        <span className='absolute left-11 top-6 text-xl text-white font-bold'>+7</span>
+                    </div>
+                    <div>
+                        <img src={favoritesLogo} alt="favorite logo" className='w-8 md:w-9 lg:w-9'/>
+                    </div>
                 </div>
             </Link>
         </div>
