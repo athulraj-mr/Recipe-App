@@ -7,7 +7,7 @@ import chefLogo from '../assets/logos/chef-logo.svg'
 
 const NavBar = () => {
   return (
-    <div className='bg-myGreen-900 flex items-center justify-between shadow-xl/20 h-22 md:h-20 md:gap-10 lg:h-24'>
+    <div className='bg-myGreen-900 sticky top-0 z-10 flex items-center justify-between shadow-xl/20 h-22 md:h-20 md:gap-10 lg:h-24'>
         <Link to='/'>
             <div className='flex items-center pl-5 gap-3 w-4/5 md:pl-12 lg:pl-16'>
                 <img src={chefLogo} alt="logo" className='w-10 md:w-12'/>
