@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRecipes } from '../hooks/useRecipes';
 import RecipeDetailCard from './RecipeDetailCard';
+import Banner from '../assets/img/bannerfood.jpg'
 
 const SearchBar = () => {
     const [searchValue, setSearchValue] = useState("")
@@ -17,7 +18,10 @@ const SearchBar = () => {
 
   return (
     <div className='w-full'>
-        <div className='w-auto flex mt-8 h-40 justify-center items-center bg-[url(src/assets/img/bannerfood.jpg)] bg-center bg-cover mx-4 shadow-xl/20 rounded-2xl md:h-70 lg:h-110 lg:my-12'>
+        <div className='w-auto flex mt-8 h-40 justify-center items-center mx-4 shadow-xl/20 rounded-2xl md:h-70 lg:h-110 lg:my-12'
+            style={{ backgroundImage: `url(${Banner})`, 
+                backgroundSize: "cover", 
+                backgroundPosition: "center",}} >
             <form onSubmit={handleSubmit} className='flex justify-center items-center py-10 h-auto gap-2'>
                 <div>
                     <input type="text"
