@@ -47,7 +47,11 @@ const SearchBar = () => {
                 <p className='text-2xl border-2 border-red-500 rounded-xl px-3 py-3'>{error}</p>
             </div>
         }
-        {!loading && !error && recipes.length !== 0 ?
+        {!loading && !error && recipes.length !== 0 && searchValue ?
+            <div className='bg-white flex justify-center items-center border-2 border-dark-900 mx-4 my-6 h-50 rounded-2xl md:text-xl md:h-70 lg:h-90 lg:border-4'>
+                <h2>Result Not Found</h2>
+            </div>
+        : 
         <div>
             <div className='flex justify-center mt-8 lg:mb-16 lg:mt-18'>
                 <h1 className='text-xl font-medium text md:text-2xl lg:text-3xl'>All Recipes</h1>
@@ -58,7 +62,7 @@ const SearchBar = () => {
                 ))}
             </div>
         </div>
-        : '' }
+        }
     </div>
   )
 }
