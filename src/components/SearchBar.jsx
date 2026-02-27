@@ -8,7 +8,6 @@ import loader from '../assets/logos/loder.svg'
 const SearchBar = () => {
     const [searchValue, setSearchValue] = useState("")
     const { recipes, loading, error, fetchedRecipe } = useRecipes()
-    const [result, setResult] = useState(false)
 
     useEffect(() => {
         fetchedRecipe('chicken')
